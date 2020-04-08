@@ -41,6 +41,9 @@ room['treasure'].s_to = room['narrow']
 
 # Make a new player object that is currently in the 'outside' room.
 
+player = Player("Ola", room["outside"])
+
+
 # Write a loop that:
 #
 # * Prints the current room name
@@ -51,3 +54,35 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+while True:
+    print("You are currently in " + player.current_room.name)
+    print(player.current_room.description + "\n")
+    
+    dir = input("Pick a direction to change room:  ")
+
+    if dir == "n":
+        try:
+            player.current_room = player.current_room.n_to
+        except AttributeError:
+            print("Aww schmucks! No way there. Pick another direction \n")
+    elif dir == "s":
+        try:
+            player.current_room = player.current_room.s_to
+        except AttributeError:
+            print("Aww schmucks! No way there. Pick another direction \n")
+    elif dir == "e":
+        try:
+            player.current_room = player.current_room.e_to
+        except AttributeError:
+            print("Aww schmucks! No way there. Pick another direction \n")
+    elif dir == "w":
+        try:
+            player.current_room = player.current_room.w_to
+        except AttributeError:
+            print("Aww schmucks! No way there. Pick another direction \n")
+    elif dir == "q":
+        print(f"It's been nice playing with you {player.name}. I hope you come back, and become addicted to my game \n")
+        break
+    else:
+        print("You can only move in n-s-e-w directions")

@@ -8,4 +8,4 @@ class Player:
         self.items = [*args]
 
     def __str__(self):
-        return f"Player name: {self.name}, current room: {self.current_room}"
+        return f"Player name: {self.name}, current room: {self.current_room}. Your items => {self.items}"
